@@ -13,7 +13,7 @@ class CowManager extends StatefulWidget {
   //make a new startingCow and create a new state to call build again.
   final String startingCow;
 
-  CowManager(this.startingCow) {
+  CowManager({this.startingCow = 'Miltank'}) {
     print('SF: [CowManager widget] Constructor(startingCow)');
   }
 

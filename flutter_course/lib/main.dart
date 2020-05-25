@@ -52,7 +52,10 @@ class MyApp extends StatelessWidget {
           backgroundColor: Color(0xFF000000),
         ),
 
-        body: CowManager('Nebby'),
+        body: CowManager(
+          //putting the name of cow here with named argument overrides the default stated in cowManager (Nebby)
+          // startingCow: 'Miltank'
+          ),
 
       ),
     );
