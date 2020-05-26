@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
 
         body: CowManager(
           //putting the name of cow here with named argument overrides the default stated in cowManager (Nebby)
-          // startingCow: 'Miltank'
+          startingCow: 'Miltank'
           ),
 
       ),
