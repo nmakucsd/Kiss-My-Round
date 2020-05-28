@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './cows.dart';
+import './cow_control.dart';
 
 //Stateful widgets use the createState method while Stateless and State widgets use the build method
 //Stateful widgets also return a State it uses
@@ -11,12 +12,20 @@ class CowManager extends StatefulWidget {
   //only things in the states can change
   //to 'change' startingCow you must re-call this class to create a new object
   //make a new startingCow and create a new state to call build again.
+  //final cannot be changed with = but can have methods (.add())
+  //const cannot be changed at all
   final String startingCow;
 
   CowManager({this.startingCow = 'Miltank'}) {
     print('SF: [CowManager widget] Constructor(startingCow)');
   }
 
+
+
+
+//LIFTING THE STATE UP
+//CowManager is the connection between CowControl and Cows
+//want to manage state in widget which has access to all widget that change or require widget data
   @override
   State<StatefulWidget> createState() {
     print('SF: [CowManager widget] createState()');
@@ -48,6 +57,14 @@ class _CowManagerState extends State<CowManager> {
   }
 
 
+  void _addCow(String cow) {
+    setState(() {
+      _cows.add(cow);
+    });
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     print('S: [CowManager State] build()');
@@ -60,17 +77,8 @@ class _CowManagerState extends State<CowManager> {
           //builds again, changes List, updates card, builds new list on screen
           //if we change product, we should also get more cards
           //flutter by default wont update when things change (state changes)
-          child: RaisedButton(
-            onPressed: () {
-              setState(() {
-                _cows.add('Tauros');
-                print(_cows);
-              });
-            },
-            // color: Theme.of(context).primaryColor,
-            color: Color(0xFFffffff),
-            child: Text('ADD COW'),
-          ),
+
+          child: CowControl(_addCow),
         ),
         Cows(_cows)
       ],
