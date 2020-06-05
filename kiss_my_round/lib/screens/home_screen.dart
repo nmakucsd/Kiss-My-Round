@@ -14,7 +14,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: buildAppBar(),
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Container(
             padding: EdgeInsets.only(left: 20, top: 20, right: 20, bottom: 20),
@@ -26,97 +26,109 @@ class HomeScreen extends StatelessWidget {
                 bottomRight: Radius.circular(30),
               ),
             ),
-            child: Wrap(
-              runSpacing: 20,
-              spacing: 20,
+            child: Column(
               children: <Widget>[
-                InfoCard(
-                  title: "BEEF",
-                  animalPicture: cowPicture,
-                  press: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return DetailsScreen();
-                        },
-                      ),
-                    );
-                  },
+                RichText(
+                  text: TextSpan(
+                    text: "KISS MY ROUND",
+                    style: Theme.of(context).textTheme.title.copyWith(
+                        color: Colors.white, fontWeight: FontWeight.bold),
+                  ),
                 ),
-                InfoCard(
-                  title: "PORK",
-                  animalPicture: pigPicture,
-                  press: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return DetailsScreen();
-                        },
-                      ),
-                    );
-                  },
+                SizedBox(height: 20),
+                Wrap(
+                  runSpacing: 20,
+                  spacing: 20,
+                  children: <Widget>[
+                    InfoCard(
+                      title: "BEEF",
+                      animalPicture: cowPicture,
+                      press: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return DetailsScreen();
+                            },
+                          ),
+                        );
+                      },
+                    ),
+                    InfoCard(
+                      title: "PORK",
+                      animalPicture: pigPicture,
+                      press: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return DetailsScreen();
+                            },
+                          ),
+                        );
+                      },
+                    ),
+                    InfoCard(
+                      title: "CHICKEN",
+                      animalPicture: chickenPicture,
+                      press: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return DetailsScreen();
+                            },
+                          ),
+                        );
+                      },
+                    ),
+                    InfoCard(
+                      title: "LAMB",
+                      animalPicture: lambPicture,
+                      press: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return DetailsScreen();
+                            },
+                          ),
+                        );
+                      },
+                    ),
+                    // InfoCard(
+                    //   title: "Total Deaths",
+                    //   iconColor: Color(0xFFFF2D55),
+                    //   effectedNum: 75,
+                    //   press: () {},
+                    // ),
+                    // InfoCard(
+                    //   title: "Total Recovered",
+                    //   iconColor: Color(0xFF50E3C2),
+                    //   effectedNum: 75,
+                    //   press: () {},
+                    // ),
+                    // InfoCard(
+                    //     title: "New Cases",
+                    //     iconColor: Color(0xFF5859D6),
+                    //     effectedNum: 75,
+                    //     press: () {
+                    //       Navigator.push(
+                    //         context,
+                    //         MaterialPageRoute(
+                    //           builder: (context) {
+                    //             return DetailsScreen();
+                    //           },
+                    //         ),
+                    //       );
+                    //     }),
+                  ],
                 ),
-                InfoCard(
-                  title: "CHICKEN",
-                  animalPicture: chickenPicture,
-                  press: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return DetailsScreen();
-                        },
-                      ),
-                    );
-                  },
-                ),
-                InfoCard(
-                  title: "LAMB",
-                  animalPicture: lambPicture,
-                  press: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return DetailsScreen();
-                        },
-                      ),
-                    );
-                  },
-                ),
-                // InfoCard(
-                //   title: "Total Deaths",
-                //   iconColor: Color(0xFFFF2D55),
-                //   effectedNum: 75,
-                //   press: () {},
-                // ),
-                // InfoCard(
-                //   title: "Total Recovered",
-                //   iconColor: Color(0xFF50E3C2),
-                //   effectedNum: 75,
-                //   press: () {},
-                // ),
-                // InfoCard(
-                //     title: "New Cases",
-                //     iconColor: Color(0xFF5859D6),
-                //     effectedNum: 75,
-                //     press: () {
-                //       Navigator.push(
-                //         context,
-                //         MaterialPageRoute(
-                //           builder: (context) {
-                //             return DetailsScreen();
-                //           },
-                //         ),
-                //       );
-                //     }),
-                Text('info cards'),
+                SizedBox(height: 10),
               ],
             ),
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 5),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: SingleChildScrollView(
@@ -130,9 +142,9 @@ class HomeScreen extends StatelessWidget {
                         .title
                         .copyWith(fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 5),
                   buildPrevention(),
-                  SizedBox(height: 20),
+                  SizedBox(height: 5),
                   buildHelpCard(context),
                 ],
               ),

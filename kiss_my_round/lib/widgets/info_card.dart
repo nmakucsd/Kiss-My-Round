@@ -39,7 +39,7 @@ class InfoCard extends StatelessWidget {
                 ),
                 Image.asset(
                   animalPicture,
-                  width: 90,
+                  height: 70,
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 30.0),
