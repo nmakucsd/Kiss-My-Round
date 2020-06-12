@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:kiss_my_round/styles/my_icons.dart';
+import 'package:kiss_my_round/widgets/popular_card.dart';
 
+import 'beef_screen.dart';
 import 'details_screen.dart';
 // import 'details_screen.dart';
 
@@ -13,167 +15,157 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Container(
-            padding: EdgeInsets.only(left: 20, top: 20, right: 20, bottom: 20),
-            width: double.infinity,
-            decoration: BoxDecoration(
-              color: kPrimaryColor,
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(30),
-                bottomRight: Radius.circular(30),
-              ),
-            ),
-            child: Column(
-              children: <Widget>[
-                RichText(
-                  text: TextSpan(
-                    text: "KISS MY ROUND",
-                    style: Theme.of(context).textTheme.title.copyWith(
-                        color: Colors.white, fontWeight: FontWeight.bold),
+      body: ListView(
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                padding:
+                    EdgeInsets.only(left: 20, top: 20, right: 20, bottom: 20),
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: kPrimaryColor,
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(30),
+                    bottomRight: Radius.circular(30),
                   ),
                 ),
-                SizedBox(height: 20),
-                Wrap(
-                  runSpacing: 20,
-                  spacing: 20,
+                child: Column(
                   children: <Widget>[
-                    InfoCard(
-                      title: "BEEF",
-                      animalPicture: cowPicture,
-                      press: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return DetailsScreen();
-                            },
-                          ),
-                        );
-                      },
+                    RichText(
+                      text: TextSpan(
+                        text: "KISS MY ROUND",
+                        style: Theme.of(context).textTheme.title.copyWith(
+                            color: Colors.white, fontWeight: FontWeight.bold),
+                      ),
                     ),
-                    InfoCard(
-                      title: "PORK",
-                      animalPicture: pigPicture,
-                      press: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return DetailsScreen();
-                            },
-                          ),
-                        );
-                      },
+                    SizedBox(height: 20),
+                    Wrap(
+                      runSpacing: 20,
+                      spacing: 20,
+                      children: <Widget>[
+                        InfoCard(
+                          title: "BEEF",
+                          animalPicture: cowPicture,
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return BeefScreen();
+                                },
+                              ),
+                            );
+                          },
+                        ),
+                        InfoCard(
+                          title: "PORK",
+                          animalPicture: pigPicture,
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return DetailsScreen();
+                                },
+                              ),
+                            );
+                          },
+                        ),
+                        InfoCard(
+                          title: "CHICKEN",
+                          animalPicture: chickenPicture,
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return DetailsScreen();
+                                },
+                              ),
+                            );
+                          },
+                        ),
+                        InfoCard(
+                          title: "LAMB",
+                          animalPicture: lambPicture,
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return DetailsScreen();
+                                },
+                              ),
+                            );
+                          },
+                        ),
+                      ],
                     ),
-                    InfoCard(
-                      title: "CHICKEN",
-                      animalPicture: chickenPicture,
-                      press: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return DetailsScreen();
-                            },
-                          ),
-                        );
-                      },
-                    ),
-                    InfoCard(
-                      title: "LAMB",
-                      animalPicture: lambPicture,
-                      press: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return DetailsScreen();
-                            },
-                          ),
-                        );
-                      },
-                    ),
-                    // InfoCard(
-                    //   title: "Total Deaths",
-                    //   iconColor: Color(0xFFFF2D55),
-                    //   effectedNum: 75,
-                    //   press: () {},
-                    // ),
-                    // InfoCard(
-                    //   title: "Total Recovered",
-                    //   iconColor: Color(0xFF50E3C2),
-                    //   effectedNum: 75,
-                    //   press: () {},
-                    // ),
-                    // InfoCard(
-                    //     title: "New Cases",
-                    //     iconColor: Color(0xFF5859D6),
-                    //     effectedNum: 75,
-                    //     press: () {
-                    //       Navigator.push(
-                    //         context,
-                    //         MaterialPageRoute(
-                    //           builder: (context) {
-                    //             return DetailsScreen();
-                    //           },
-                    //         ),
-                    //       );
-                    //     }),
+                    SizedBox(height: 10),
                   ],
                 ),
-                SizedBox(height: 10),
-              ],
-            ),
-          ),
-          SizedBox(height: 5),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    "Preventions",
-                    style: Theme.of(context)
-                        .textTheme
-                        .title
-                        .copyWith(fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(height: 5),
-                  buildPrevention(),
-                  SizedBox(height: 5),
-                  buildHelpCard(context),
-                ],
               ),
-            ),
-          )
+              SizedBox(height: 20),
+              //
+
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      "What's Popular",
+                      style: Theme.of(context)
+                          .textTheme
+                          .title
+                          .copyWith(fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(height: 5),
+
+                    //
+
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: <Widget>[
+                          PopularCard(
+                            item: "RIBEYE",
+                            animal: "BEEF",
+                            imgSrc: cowPicture,
+                            press: () {},
+                          ),
+                          PopularCard(
+                            item: "FILET MIGNON",
+                            animal: "BEEF",
+                            imgSrc: cowPicture,
+                            press: () {},
+                          ),
+                          PopularCard(
+                            item: "CARNE ASADA",
+                            animal: "BEEF",
+                            imgSrc: cowPicture,
+                            press: () {},
+                          ),
+                          PopularCard(
+                            item: "PORK CHOP",
+                            animal: "PORK",
+                            imgSrc: pigPicture,
+                            press: () {},
+                          )
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 5),
+                    buildHelpCard(context),
+                  ],
+                ),
+              )
+            ],
+          ),
         ],
       ),
-    );
-  }
-
-  Row buildPrevention() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      //Three prevention pictures
-      children: <Widget>[
-        // PreventionCard(
-        //   svgSrc: iconWashHands,
-        //   title: "Wash Hands",
-        // ),
-        // PreventionCard(
-        //   svgSrc: iconUseMask,
-        //   title: "Use Mask",
-        // ),
-        // PreventionCard(
-        //   svgSrc: iconCleanDisinfect,
-        //   title: "Clean Disinfect",
-        // ),
-        Text('Prevention Cards'),
-      ],
     );
   }
 
@@ -251,30 +243,6 @@ class HomeScreen extends StatelessWidget {
           icon: SvgPicture.asset(iconSearch),
           onPressed: () {},
         ),
-      ],
-    );
-  }
-}
-
-class PreventionCard extends StatelessWidget {
-  final String svgSrc;
-  final String title;
-  const PreventionCard({
-    Key key,
-    this.svgSrc,
-    this.title,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        SvgPicture.asset(svgSrc),
-        Text(
-          title,
-          style:
-              Theme.of(context).textTheme.body2.copyWith(color: kPrimaryColor),
-        )
       ],
     );
   }

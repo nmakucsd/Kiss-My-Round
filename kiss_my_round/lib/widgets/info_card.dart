@@ -28,7 +28,14 @@ class InfoCard extends StatelessWidget {
             //here constraints.maxWidth provides us the available width for the widget
             decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(15),
+              boxShadow: [
+                BoxShadow(
+                  offset: Offset(0, 5),
+                  blurRadius: 0,
+                  color: Colors.black.withOpacity(0.1),
+                )
+              ],
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
